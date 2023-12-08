@@ -1,0 +1,517 @@
+{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Type": "TabularFile",
+    "Version": 1,
+    "FilePath": "C:\\Users\\aquon\\Code\\housing_price_dataset_train.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "SquareFeet",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Bedrooms",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Bathrooms",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Neighborhood",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "YearBuilt",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "Price",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.5809301662439076,
+        "RuntimeInSeconds": 0.171,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Neighborhood"
+            ],
+            "InputColumnNames": [
+              "Neighborhood"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "InputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Neighborhood",
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 11,
+            "MinimumExampleCountPerLeaf": 26,
+            "NumberOfTrees": 8,
+            "MaximumBinCountPerFeature": 247,
+            "FeatureFraction": 0.8558561913566932,
+            "LearningRate": 0.4238189045457936,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e7": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LightGbmRegression",
+        "Score": 0.5804653536399418,
+        "RuntimeInSeconds": 0.915,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e5",
+          "e0": {
+            "OutputColumnNames": [
+              "Neighborhood"
+            ],
+            "InputColumnNames": [
+              "Neighborhood"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "InputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Neighborhood",
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 21,
+            "LearningRate": 0.16268573895033192,
+            "NumberOfTrees": 565,
+            "SubsampleFraction": 0.022754320946758253,
+            "MaximumBinCountPerFeature": 163,
+            "FeatureFraction": 0.9677335383592737,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 0.26865492018615583,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.09999999999999998,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e7": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.5794511806858611,
+        "RuntimeInSeconds": 0.128,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Neighborhood"
+            ],
+            "InputColumnNames": [
+              "Neighborhood"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "InputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Neighborhood",
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 53,
+            "NumberOfTrees": 11,
+            "MaximumBinCountPerFeature": 253,
+            "FeatureFraction": 0.7587430419701728,
+            "LearningRate": 0.9999997766729865,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e7": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 0.1,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SdcaRegression",
+        "Score": 0.5781314389026828,
+        "RuntimeInSeconds": 1.208,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e7",
+          "e0": {
+            "OutputColumnNames": [
+              "Neighborhood"
+            ],
+            "InputColumnNames": [
+              "Neighborhood"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "InputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Neighborhood",
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e7": {
+            "L1Regularization": 0.034002528,
+            "L2Regularization": 24.06486,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.09999999999999998,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "SdcaRegression",
+        "Score": 0.577433316554977,
+        "RuntimeInSeconds": 0.18,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e7",
+          "e0": {
+            "OutputColumnNames": [
+              "Neighborhood"
+            ],
+            "InputColumnNames": [
+              "Neighborhood"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "InputColumnNames": [
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Neighborhood",
+              "SquareFeet",
+              "Bedrooms",
+              "Bathrooms",
+              "YearBuilt"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e7": {
+            "L1Regularization": 0.66303056,
+            "L2Regularization": 13243.65,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.09999999999999998,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e4": {
+            "NumberOfTrees": 4,
+            "NumberOfLeaves": 4,
+            "FeatureFraction": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e5": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "LearningRate": 1.0,
+            "NumberOfTrees": 4,
+            "SubsampleFraction": 1.0,
+            "MaximumBinCountPerFeature": 255,
+            "FeatureFraction": 1.0,
+            "L1Regularization": 2E-10,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          },
+          "e6": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Price",
+            "FeatureColumnName": "Features"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeRegression",
+      "e4": "FastForestRegression",
+      "e5": "LightGbmRegression",
+      "e6": "LbfgsPoissonRegressionRegression",
+      "e7": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "C:\\Users\\aquon\\Code\\HousePrediction\\housing\\housing.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 1,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 20,
+    "LabelColumn": "Price",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "TrainValidateSplitValidationOption",
+      "SplitRatio": 0.1
+    }
+  }
+}
